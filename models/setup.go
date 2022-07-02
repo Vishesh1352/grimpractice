@@ -8,6 +8,7 @@ import (
 	// refer: https://gorm.io/docs/connecting_to_the_database.html#MySQL
 
 )
+
 var DB *gorm.DB
 
 func DBconnectDatabase() {
@@ -22,6 +23,8 @@ func DBconnectDatabase() {
 
 	//defer db.Close()
 	db.AutoMigrate(&Client{})
+	db.AutoMigrate(&Employee{})
+	db.AutoMigrate(&EmployeeWork{})
 
 	DB = db
 }

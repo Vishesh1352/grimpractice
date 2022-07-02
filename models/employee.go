@@ -1,7 +1,7 @@
 package models
 
-type employeee struct {
-	employeeID   uint   `json : "employeeID" gorm :"primary_key"`
-	employeeName string `json:"employeeName"`
-	employeeRate int    `json:"employeeRate"`
+type Employee struct {
+	EmployeeID   uint   `json:"Employeeid" gorm:"primary_key;auto_increment;not_null"`
+	EmployeeName string `json:"EmployeeName"`
+	EmployeeRate int    `json:"EmployeeRate"`
 }

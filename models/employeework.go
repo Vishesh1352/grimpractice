@@ -1,10 +1,10 @@
 package models
 
-type employeeWork struct {
-	employeeName string  `json :"employeeName"`
-	employeeID   uint    `json:"employeeID" `
-	clientID     uint    `json :"clientID"`
-	clientName   string  `json:"clientName"`
-	workDate     string  `json:"workDate"`
-	workHours    float32 `json:"workHours"`
+import "time"
+
+type EmployeeWork struct {
+	EmployeeID uint      `json:"employeeID" `
+	ClientID   uint      `json:"clientID"`
+	WorkDate   time.Time `json:"workDate" binding:"required" time_format:"2006-01-02"`
+	WorkHours  float32   `json:"workHours"`
 }

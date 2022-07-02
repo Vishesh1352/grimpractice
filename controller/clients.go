@@ -20,9 +20,9 @@ func FindClients(c *gin.Context) {
 
 //create client
 type CreateClient struct {
-	ClientName   string `json :"clientName" binding:"required"`
-	ClientRegion string `json :"clientRegion" binding:"required"`
-	GST          int    `json :"GST" binding:"required"`
+	ClientName   string `json:"clientName" binding:"required"`
+	ClientRegion string `json:"clientRegion" binding:"required"`
+	GST          int    `json:"GST" binding:"required"`
 }
 
 func CreateClients(c *gin.Context) {
@@ -47,7 +47,7 @@ func FindClientsid(c *gin.Context) {
 
 	var client models.Client
 
-	err := models.DB.Where("id = ?", c.Param("id")).First(&client).Error
+	err := models.DB.Where("client_id = ?", c.Param("id")).First(&client).Error
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
@@ -67,7 +67,7 @@ type UpdateClientInput struct {
 func UpdateClient(c *gin.Context) {
 
 	var client models.Client
-	if err := models.DB.Where("id = ?", c.Param("id")).First(&client).Error; err != nil {
+	if err := models.DB.Where("client_id = ?", c.Param("id")).First(&client).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
 		return
 	}
@@ -87,7 +87,7 @@ func UpdateClient(c *gin.Context) {
 func DeleteClient(c *gin.Context) {
 
 	var client models.Client
-	if err := models.DB.Where("id = ?", c.Param("id")).First(&client).Error; err != nil {
+	if err := models.DB.Where("client_id = ?", c.Param("id")).First(&client).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
 		return
 	}
