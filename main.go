@@ -1,15 +1,16 @@
 package main
 
 import (
-	"example.com/grimpractice/controller"
-
 	"github.com/gin-gonic/gin"
+
+	"example.com/grimpractice/controller"
+	"example.com/grimpractice/models"
 )
 
 func main() {
 	r := gin.Default()
 
-	models.connecToDatabase()
+	models.ConnectToDatabase()
 
 	//for client table
 	r.GET("/client", controller.GetClients)
