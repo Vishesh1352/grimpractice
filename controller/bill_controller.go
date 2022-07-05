@@ -21,11 +21,6 @@ func GetBillForAnEmployee(c *gin.Context) {
 	}
 
 	employeeId := c.Param("employeeId")
-	// eId, err := strconv.ParseUint(c.Param("employeeId"), 10, 32)
-	// if err != nil {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "INVALID_INPUT"})
-	// 	return
-	// }
 
 	var WorkModel []models.Work
 
@@ -74,11 +69,7 @@ func GetBillForAClient(c *gin.Context) {
 		return
 	}
 	clientId := c.Param("clientId")
-	// cId, err := strconv.ParseUint(c.Param("clientId"), 10, 32)
-	// if err != nil {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "INVALID_INPUT"})
-	// 	return
-	// }
+
 	var clients []models.Client
 
 	if err := models.DB.Where("client_id = ?", clientId).First(&clients, clientId).Error; err != nil {
@@ -113,6 +104,6 @@ func GetBillForAClient(c *gin.Context) {
 	}
 	gstAmount := totalBillAmount * gst / 100
 	totalAmount := totalBillAmount + gstAmount
-	// models.DB.Find(&clients)
+
 	c.JSON(http.StatusOK, gin.H{"data": totalAmount})
 }
