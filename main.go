@@ -16,11 +16,15 @@ func main() {
 	r.GET("/client", controller.GetClients)
 	r.POST("/client", controller.CreateClient)
 	r.GET("/client/:clientID", controller.FindClientById)
+	r.PATCH("/client/:clientID", controller.UpdateClient)
+	r.DELETE("/client/:clientID", controller.DeleteClient)
 
 	//for Employee table
 	r.GET("/employee", controller.GetEmployees)
 	r.POST("/employee", controller.CreateEmployee)
 	r.GET("/employee/:employeeId", controller.FindEmployeeById)
+	r.PATCH("/employee/:employeeId", controller.UpdateEmployee)
+	r.DELETE("employee/:employeeId", controller.DeleteEmployee)
 
 	//for Work
 	r.POST("/client/:clientId/employee/:employeeId/work", controller.AddWork)
