@@ -8,8 +8,8 @@ import (
 )
 
 type EmployeeRequest struct {
-	EmployeeName string  `binding:"required"`
-	EmployeeRate float32 `binding:"required"`
+	EmployeeName string  `binding:"required,min=3"`
+	EmployeeRate float32 `binding:"required,min=3"`
 	ClientID     int     `binding:"required"`
 }
 

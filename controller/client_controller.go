@@ -8,8 +8,8 @@ import (
 )
 
 type ClientRequest struct {
-	ClientName   string  `json:"clientName" binding:"required"`
-	ClientRegion string  `json:"clientRegion" binding:"required"`
+	ClientName   string  `json:"clientName" binding:"required,min=3"`
+	ClientRegion string  `json:"clientRegion" binding:"required,min=3"`
 	GST          float32 `json:"GST" binding:"required"`
 }
 

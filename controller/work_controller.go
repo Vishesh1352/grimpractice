@@ -9,9 +9,9 @@ import (
 )
 
 type WorkRequest struct {
-	Year  int `json:"year"  binding:"required"`
-	Month int `json:"month" binding:"required"`
-	Days  int `json:"days" binding:"required"`
+	Year  int `json:"year"  binding:"required,max=4"`
+	Month int `json:"month" binding:"required,max=2"`
+	Days  int `json:"days" binding:"required,max=2"`
 }
 
 func AddWork(c *gin.Context) {
